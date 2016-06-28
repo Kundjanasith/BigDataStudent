@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+          // Load Charts and the corechart and barchart packages.
+          google.charts.load('current', {'packages':['corechart']});
+
+          // Draw the pie chart and bar chart when Charts is loaded.
+          google.charts.setOnLoadCallback(drawChart);
+
+          function drawChart() {
+
+            var dataI = new google.visualization.DataTable();
+            dataI.addColumn('string', 'Program');
+            dataI.addColumn('number', 'Person');
+            dataI.addRows([
+              // <td>52</td>
+              // <td>42</td>
+              // <td>73</td>
+              // <td>79</td>
+              // <td>41</td>
+              ['Q53', 52],
+              ['Q54', 42],
+              ['Q55', 73],
+              ['Q56', 79],
+              ['Q57', 41]
+            ]);
+
+            var dataBi = new google.visualization.DataTable();
+            dataBi.addColumn('string', 'Program');
+            dataBi.addColumn('number', 'Person');
+            dataBi.addRows([
+              // <td>21</td>
+              // <td>11</td>
+              // <td>22</td>
+              // <td>24</td>
+              // <td>15</td>
+              ['Q53', 21],
+              ['Q54', 11],
+              ['Q55', 22],
+              ['Q56', 24],
+              ['Q57', 15]
+            ]);
+
+            var piechart_optionsI = {title:'Industrail Engineering',
+                           width: (window.innerWidth/2)-10,
+                           height: window.innerHeight-50};
+            var piechartI = new google.visualization.PieChart(document.getElementById('piechartI_div'));
+            piechartI.draw(dataI, piechart_optionsI);
+            var piechart_optionsBi = {title:'Chemical & Biological Engineering',
+                           width: (window.innerWidth/2)-10,
+                           height: window.innerHeight-50};
+            var piechartBi = new google.visualization.PieChart(document.getElementById('piechartBi_div'));
+            piechartBi.draw(dataBi, piechart_optionsBi);
+        }
+</script>
+<body>
+  <table class="columns">
+    <tr>
+      <td><div id="piechartI_div" style="border: 1px solid #ccc"></div></td>
+      <td><div id="piechartBi_div" style="border: 1px solid #ccc"></div></td>
+    </tr>
+  </table>
+  </body>
+</html>

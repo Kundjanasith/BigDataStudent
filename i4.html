@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+          // Load Charts and the corechart and barchart packages.
+          google.charts.load('current', {'packages':['corechart']});
+
+          // Draw the pie chart and bar chart when Charts is loaded.
+          google.charts.setOnLoadCallback(drawChart);
+
+          function drawChart() {
+
+            var dataMec = new google.visualization.DataTable();
+            dataMec.addColumn('string', 'Program');
+            dataMec.addColumn('number', 'Person');
+            dataMec.addRows([
+              // 49,41,84,71,46,0
+              ['Q53', 49],
+              ['Q54', 41],
+              ['Q55', 84],
+              ['Q56', 71],
+              ['Q57', 46]
+            ]);
+
+            var dataCi = new google.visualization.DataTable();
+            dataCi.addColumn('string', 'Program');
+            dataCi.addColumn('number', 'Person');
+            dataCi.addRows([
+              // 54,46,52,51,31,
+              ['Q53', 54],
+              ['Q54', 46],
+              ['Q55', 52],
+              ['Q56', 51],
+              ['Q57', 31]
+            ]);
+
+            var piechart_optionsMec = {title:'Mechanical Engineering',
+                           width: (window.innerWidth/2)-10,
+                           height: window.innerHeight-50};
+            var piechartMec = new google.visualization.PieChart(document.getElementById('piechartMec_div'));
+            piechartMec.draw(dataMec, piechart_optionsMec);
+            var piechart_optionsCi = {title:'Civil Engineering',
+                           width: (window.innerWidth/2)-10,
+                           height: window.innerHeight-50};
+            var piechartCi = new google.visualization.PieChart(document.getElementById('piechartCi_div'));
+            piechartCi.draw(dataCi, piechart_optionsCi);
+        }
+</script>
+<body>
+  <table class="columns">
+    <tr>
+      <td><div id="piechartMec_div" style="border: 1px solid #ccc"></div></td>
+      <td><div id="piechartCi_div" style="border: 1px solid #ccc"></div></td>
+    </tr>
+  </table>
+  </body>
+</html>

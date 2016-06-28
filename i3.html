@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+          // Load Charts and the corechart and barchart packages.
+          google.charts.load('current', {'packages':['corechart']});
+
+          // Draw the pie chart and bar chart when Charts is loaded.
+          google.charts.setOnLoadCallback(drawChart);
+
+          function drawChart() {
+
+            var dataNo = new google.visualization.DataTable();
+            dataNo.addColumn('string', 'Program');
+            dataNo.addColumn('number', 'Person');
+            dataNo.addRows([
+              // 18	9	29	17	7
+              ['Q53', 18],
+              ['Q54', 9],
+              ['Q55', 29],
+              ['Q56', 17],
+              ['Q57', 7]
+            ]);
+
+            var dataEng = new google.visualization.DataTable();
+            dataEng.addColumn('string', 'Program');
+            dataEng.addColumn('number', 'Person');
+            dataEng.addRows([
+              // 9,0,0,0,0,0
+              ['Q53', 9],
+              ['Q54', 0],
+              ['Q55', 0],
+              ['Q56', 0],
+              ['Q57', 0]
+            ]);
+
+            // var dataMec = new google.visualization.DataTable();
+            // dataEng.addColumn('string', 'Program');
+            // dataEng.addColumn('number', 'Person');
+            // dataEng.addRows([
+            //   // 49,41,84,71,46,0
+            //   ['Q53', 49],
+            //   ['Q54', 41],
+            //   ['Q55', 84],
+            //   ['Q56', 71],
+            //   ['Q57', 46]
+            // ]);
+
+            var piechart_optionsNo = {title:'No Program',
+                           width: (window.innerWidth/2)-13,
+                           height: window.innerHeight-50};
+            var piechartNo = new google.visualization.PieChart(document.getElementById('piechartNo_div'));
+            piechartNo.draw(dataNo, piechart_optionsNo);
+            var piechart_optionsEng = {title:'Engineering',
+                           width: (window.innerWidth/2)-13,
+                           height: window.innerHeight-50};
+            var piechartEng = new google.visualization.PieChart(document.getElementById('piechartEng_div'));
+            piechartEng.draw(dataEng, piechart_optionsEng);
+        }
+</script>
+<body>
+  <table class="columns">
+    <tr>
+      <td><div id="piechartNo_div" style="border: 1px solid #ccc"></div></td>
+      <td><div id="piechartEng_div" style="border: 1px solid #ccc"></div></td>
+      <!-- <td><div id="piechart54_div" style="border: 1px solid #ccc"></div></td> -->
+      <!-- <td><div id="piechart55_div" style="border: 1px solid #ccc"></div></td>
+      <td><div id="piechart56_div" style="border: 1px solid #ccc"></div></td>
+      <td><div id="piechart57_div" style="border: 1px solid #ccc"></div></td> -->
+      <!-- <td><div id="barchart_div" style="border: 1px solid #ccc"></div></td> -->
+    </tr>
+  </table>
+  </body>
+</html>

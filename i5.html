@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+          // Load Charts and the corechart and barchart packages.
+          google.charts.load('current', {'packages':['corechart']});
+
+          // Draw the pie chart and bar chart when Charts is loaded.
+          google.charts.setOnLoadCallback(drawChart);
+
+          function drawChart() {
+
+            var dataEn = new google.visualization.DataTable();
+            dataEn.addColumn('string', 'Program');
+            dataEn.addColumn('number', 'Person');
+            dataEn.addRows([
+              // ,10,8,15,6,8
+              ['Q53', 10],
+              ['Q54', 8],
+              ['Q55', 15],
+              ['Q56', 6],
+              ['Q57', 8]
+            ]);
+
+            var dataEl = new google.visualization.DataTable();
+            dataEl.addColumn('string', 'Program');
+            dataEl.addColumn('number', 'Person');
+            dataEl.addRows([
+              // 55</td>
+              // <td>45</td>
+              // <td>41</td>
+              // <td>58</td>
+              // <td>48</td>
+              // <td>0</td>
+              ['Q53', 55],
+              ['Q54', 45],
+              ['Q55', 41],
+              ['Q56', 58],
+              ['Q57', 48]
+            ]);
+
+            var piechart_optionsEn = {title:'Environmetal Engineering',
+                           width: (window.innerWidth/2)-10,
+                           height: window.innerHeight-50};
+            var piechartEn = new google.visualization.PieChart(document.getElementById('piechartEn_div'));
+            piechartEn.draw(dataEn, piechart_optionsEn);
+            var piechart_optionsEl = {title:'Electrical Engineering',
+                           width: (window.innerWidth/2)-10,
+                           height: window.innerHeight-50};
+            var piechartEl = new google.visualization.PieChart(document.getElementById('piechartEl_div'));
+            piechartEl.draw(dataEl, piechart_optionsEl);
+        }
+</script>
+<body>
+  <table class="columns">
+    <tr>
+      <td><div id="piechartEn_div" style="border: 1px solid #ccc"></div></td>
+      <td><div id="piechartEl_div" style="border: 1px solid #ccc"></div></td>
+    </tr>
+  </table>
+  </body>
+</html>
