@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {'packages':['line']});
+     google.charts.setOnLoadCallback(drawChart);
+
+   function drawChart() {
+
+     var data = new google.visualization.DataTable();
+     data.addColumn('string', 'EnrolledYear - Semester');
+     data.addColumn('number', '[ 2.0 - 2.5 ]');
+     data.addColumn('number', '[ 2.5 - 3.0 ]');
+     data.addColumn('number', '[ 3.0 - 3.5 ]');
+     data.addColumn('number', '[ 3.5 - 4.0 ]');
+
+     data.addRows([
+       ['Entrance',2.33,2.74,3.24,3.67],
+       [' 2554 - 1 ',2.06,2.27,2.46,2.91],
+       [' 2554 - 2 ',1.81,2.21,2.35,2.77],
+       [' 2555 - 1 ',2.15,1.85,2.07,2.46],
+       [' 2555 - 2 ',2.16,1.94,2.33,2.55],
+       [' 2556 - 1 ',2.40,2.25,2.57,2.95],
+       [' 2556 - 2 ',2.36,2.08,2.56,2.79],
+       [' 2557 - 1 ',2.49,2.41,2.75,3.07],
+       [' 2557 - 2 ',2.20,1.74,2.09,2.24],
+     ]);
+
+     var options = {
+       chart: {
+         title: 'กราฟเปรียบเทียบระหว่างเกรดเฉลี่ยตอนมัธยมในแต่ละกลุ่มกับเกรดเฉลี่ยปัจจุบัน : Q54',
+       },
+       width: 900,
+       height: 400,
+       'hAxis': {
+                    title: "Date"}
+     };
+
+     var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+     chart.draw(data, options);
+   }
+    </script>
+  </head>
+  <body>
+    <div id="linechart_material" style="width: 900px; height: 500px"></div>
+  </body>
+</html>
