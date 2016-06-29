@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.setOnLoadCallback(drawAnnotations);
+
+    function drawAnnotations() {
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Entrance Year');
+
+          data.addColumn('number', '[ 2.0 - 2.5 ]');
+          data.addColumn({type: 'string', role: 'annotation'});
+          data.addColumn('number', '[ 2.5 - 3.0 ]');
+          data.addColumn({type: 'string', role: 'annotation'});
+          data.addColumn('number', '[ 3.0 - 3.5 ]');
+          data.addColumn({type: 'string', role: 'annotation'});
+          data.addColumn('number', '[ 3.5 - 4.0 ]');
+          data.addColumn({type: 'string', role: 'annotation'});
+
+
+          data.addRows([
+            ['2553',8,'8',40,'40',79,'79',131,'131'],
+            ['2554',0,'0',59,'59',111,'111',128,'128'],
+            ['2555',0,'0',37,'37',63,'63',91,'91'],
+            ['2556',9,'9',45,'45',104,'104',139,'139'],
+            ['2557',0,'0',29,'29',66,'66',96,'96']
+          ]);
+
+          var options = {
+            title: 'Social course',
+            width: window.innerWidth-50,
+            height: window.innerHeight-50,
+            annotations: {
+              alwaysOutside: true,
+              textStyle: {
+                fontSize: 14,
+                color: '#000',
+                auraColor: 'none'
+              }
+            },
+            hAxis: {
+              title: 'Entance Year'
+            },
+            vAxis: {
+              title: 'Person',
+              viewWindow: {
+                min: [0],
+                max: [140]
+              }
+            }
+          };
+
+          var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+          chart.draw(data, options);
+        }
+</script>
+<body>
+    <div id="chart_div" style="border: 1px solid #ccc"></div>
+  </body>
+</html>
